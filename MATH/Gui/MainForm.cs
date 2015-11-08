@@ -48,6 +48,7 @@ namespace MATH {
             forms.Add(typeof(CentralTendency));
             forms.Add(typeof(StandardDeviation));
             forms.Add(typeof(NormalDistribution));
+            forms.Add(typeof(Variance));
         }
 
         private void enterItem(object sender, EventArgs e) {

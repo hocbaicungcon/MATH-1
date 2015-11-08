@@ -23,6 +23,14 @@ namespace MATH.Util {
             return deviation;
         }
 
+        internal static double variance(double[] list, bool isSample) {
+            return Math.Pow(standardDeviation(list, isSample), 2);
+        }
+
+        internal static double variance(double[] list) {
+            return variance(list, false);
+        }
+
         internal static double standardDeviation(double[] list) {
             return standardDeviation(list, false);
         }
