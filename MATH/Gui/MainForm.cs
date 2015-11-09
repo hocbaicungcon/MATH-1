@@ -49,6 +49,7 @@ namespace MATH {
             forms.Add(typeof(StandardDeviation));
             forms.Add(typeof(NormalDistribution));
             forms.Add(typeof(Variance));
+            forms.Add(typeof(ProbabilityDistribution));
         }
 
         private void enterItem(object sender, EventArgs e) {

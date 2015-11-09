@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MATH.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,14 +54,14 @@ namespace MATH.Gui {
         internal bool areFieldsPopulated(string[] names) {
             foreach (string name in names) {
                 double x;
-                if (!Double.TryParse(inputs.Find(byName(name)).Text, out x))
+                if (!Double.TryParse(inputs.Find(Predicate.byName(name)).Text, out x))
                     return false;
             }
             return true;
         }
 
         internal void setOutput(string name, string value) {
-            outputs.Find(byName(name)).Text = value;
+            outputs.Find(Predicate.byName(name)).Text = value;
         }
 
         internal void setOutput(string name, double value) {
@@ -68,17 +69,11 @@ namespace MATH.Gui {
         }
 
         internal double getInput(string name) {
-            return Double.Parse(inputs.Find(byName(name)).Text);
+            return Double.Parse(inputs.Find(Predicate.byName(name)).Text);
         }
 
         internal string getInputString(string name) {
-            return inputs.Find(byName(name)).Text;
-        }
-
-        private Predicate<TextBox> byName(string text) {
-            return delegate(TextBox textBox) {
-                return textBox.Name.Equals(text);
-            };
+            return inputs.Find(Predicate.byName(name)).Text;
         }
 
         internal void addOutputs(string[] outputs) {
