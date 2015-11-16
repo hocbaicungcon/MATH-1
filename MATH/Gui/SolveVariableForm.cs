@@ -22,7 +22,7 @@ namespace MATH.Gui {
             panel.AutoScroll = true;
         }
 
-        internal void addInputs(string[] inputs) {
+        internal void addInputs(params string[] inputs) {
             foreach (string input in inputs) {
                 Label label = new Label();
                 label.Text = input;
@@ -51,13 +51,17 @@ namespace MATH.Gui {
             throw new NotImplementedException();
         }
 
-        internal bool areFieldsPopulated(string[] names) {
+        internal bool areFieldsPopulated(params string[] names) {
             foreach (string name in names) {
                 double x;
                 if (!Double.TryParse(inputs.Find(Predicate.byName(name)).Text, out x))
                     return false;
             }
             return true;
+        }
+
+        internal bool isFieldPopulated(string name) {
+            return areFieldsPopulated(new string[] { name });
         }
 
         internal void setOutput(string name, string value) {
@@ -76,7 +80,7 @@ namespace MATH.Gui {
             return inputs.Find(Predicate.byName(name)).Text;
         }
 
-        internal void addOutputs(string[] outputs) {
+        internal void addOutputs(params string[] outputs) {
             foreach (string output in outputs) {
                 Label label = new Label();
                 label.Text = output;

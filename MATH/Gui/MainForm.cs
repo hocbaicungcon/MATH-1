@@ -50,6 +50,9 @@ namespace MATH {
             forms.Add(typeof(NormalDistribution));
             forms.Add(typeof(Variance));
             forms.Add(typeof(ProbabilityDistribution));
+            forms.Add(typeof(BinomialDistribution));
+            forms.Add(typeof(PoissonDistribution));
+            forms.Add(typeof(GeometricDistribution));
         }
 
         private void enterItem(object sender, EventArgs e) {

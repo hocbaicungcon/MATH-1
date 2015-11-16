@@ -21,6 +21,16 @@ namespace MATH.Util {
         }
 
         /// <summary>
+        /// Calculate geometric ditribution
+        /// </summary>
+        /// <param name="successRate">Probability of success (p)</param>
+        /// <param name="successIndex">Number where first success occurs (x)</param>
+        /// <returns></returns>
+        internal static double geometricDist(double successRate, double successIndex) {
+            return successRate * Math.Pow(1 - successRate, successIndex - 1);
+        }
+
+        /// <summary>
         /// Calulates the standard deviation of a list
         /// </summary>
         /// <param name="list"></param>
@@ -33,6 +43,70 @@ namespace MATH.Util {
                 sumOfSquares += Math.Pow(d - mean, 2);
             double deviation = Math.Sqrt(sumOfSquares / (list.Length - (isSample ? 1 : 0)));
             return deviation;
+        }
+
+        /// <summary>
+        /// Calcualtes the standard deviation of a binomial (experiment) distribution
+        /// </summary>
+        /// <param name="n">Number of trials</param>
+        /// <param name="p">Probability of success</param>
+        /// <param name="q">Probability of failure</param>
+        /// <returns></returns>
+        internal static double biNomExStdDev(double n, double p, double q) {
+            return Math.Sqrt(MMath.biNomExVariance(n, p, q));
+        }
+
+        /// <summary>
+        /// Calcualtes the probability of success (x) of a binomial (experiment) distribution
+        /// </summary>
+        /// <param name="n">Number of trials</param>
+        /// <param name="p">Probability of success</param>
+        /// <param name="q">Probability of failure</param>
+        /// <param name="x">Count of success</param>
+        /// <returns></returns>
+        internal static double biNomExProbOfOccurances(double n, double p, double q, double x) {
+            return MMath.fact(n) / (MMath.fact(n - x) * MMath.fact(x)) * Math.Pow(p, x) * Math.Pow(q, n - x);
+        }
+
+        /// <summary>
+        /// Solves a factorial
+        /// </summary>
+        /// <param name="x"></param>
+        private static double fact(double x) {
+            if (x <= 1)
+                return 1;
+            return x * fact(x - 1);
+        }
+
+        /// <summary>
+        /// Calculates poisson distribution
+        /// </summary>
+        /// <param name="mean"></param>
+        /// <param name="x">occurances</param>
+        /// <returns></returns>
+        internal static double poisson(double mean, double x) {
+            return Math.Pow(mean, x) * Math.Pow(Math.E, -mean) / MMath.fact(x);
+        }
+
+        /// <summary>
+        /// Calcualtes the variance of a binomial (experiment) distribution
+        /// </summary>
+        /// <param name="n">Number of trials</param>
+        /// <param name="p">Probability of success</param>
+        /// <param name="q">Probability of failure</param>
+        /// <returns></returns>
+        internal static double biNomExVariance(double n, double p, double q) {
+            return n * p * q;
+        }
+
+        /// <summary>
+        /// Calcualtes the mean of a binomial (experiment) distribution
+        /// </summary>
+        /// <param name="n">Number of trials</param>
+        /// <param name="p">Probability of success</param>
+        /// <returns></returns>
+        internal static double biNomExMean(double n, double p) {
+            return n * p;
         }
 
         /// <summary>
