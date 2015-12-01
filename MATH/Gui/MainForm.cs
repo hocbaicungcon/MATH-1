@@ -53,6 +53,7 @@ namespace MATH {
             forms.Add(typeof(BinomialDistribution));
             forms.Add(typeof(PoissonDistribution));
             forms.Add(typeof(GeometricDistribution));
+            forms.Add(typeof(MarginError));
         }
 
         private void enterItem(object sender, EventArgs e) {

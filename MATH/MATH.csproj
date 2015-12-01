@@ -80,6 +80,9 @@
     <Compile Include="Gui\Calc\InterestSimple.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gui\Calc\MarginError.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gui\Calc\NormalDistribution.cs">
       <SubType>Form</SubType>
     </Compile>
