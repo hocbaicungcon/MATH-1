@@ -92,6 +92,9 @@
     <Compile Include="Gui\Calc\ProbabilityDistribution.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gui\Calc\RoofFrameLeg.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gui\Calc\StandardDeviation.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -54,6 +54,7 @@ namespace MATH {
             forms.Add(typeof(PoissonDistribution));
             forms.Add(typeof(GeometricDistribution));
             forms.Add(typeof(MarginError));
+            forms.Add(typeof(RoofFrameLeg));
         }
 
         private void enterItem(object sender, EventArgs e) {
